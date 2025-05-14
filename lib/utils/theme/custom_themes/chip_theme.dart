@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+
+class TChipTheme {
+  TChipTheme._();
+  //light theme
+  static ChipThemeData lightChipTheme = ChipThemeData(
+    disabledColor: Color.fromRGBO(158, 158, 158, 0.4),
+    labelStyle: const TextStyle(color: Colors.black),
+    selectedColor: Colors.blue,
+    padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 12),
+    checkmarkColor: Colors.white
+  );
+
+  //dark theme
+  static ChipThemeData darkChipTheme = ChipThemeData(
+    disabledColor: Color.fromRGBO(158, 158, 158, 0.4),
+    labelStyle: const TextStyle(color: Colors.black),
+    selectedColor: Colors.blue,
+    padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 12),
+    checkmarkColor: Colors.white
+  );
+}

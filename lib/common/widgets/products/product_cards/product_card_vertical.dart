@@ -33,7 +33,7 @@ class TProductCardVertical extends StatelessWidget {
           children: [
             //Thumbnail, Wishlist Button, Discount Tag
             TRoundedContainer(
-              height: 180,
+              height: 160,
               padding: const EdgeInsets.all(TSizes.sm),
               backgroundColor: dark ? TColors.dark : TColors.softGrey,
               child: Stack(
@@ -78,9 +78,9 @@ class TProductCardVertical extends StatelessWidget {
                 children: [
                   TProductTitleText(title: 'White Nike Air Shoes', smallSize: true),
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
-                  
+
                   //Store Brand title
-                  TBrandTitleWithVerifiedIcon(title: 'Nike')
+                  TBrandTitleWithVerifiedIcon(title: 'Nike'),
                 ],
               ),
             ),

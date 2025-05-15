@@ -39,6 +39,8 @@ class TBrandCard extends StatelessWidget {
             const SizedBox(width: TSizes.spaceBtwItems / 3),
 
             //Text
+            //[Expanded] & Column [MainAxisSize.min] is important to keep the elements in the vertical center & also
+            //to keep the Text inside the boundaries.
             Expanded(
               child: Column(
                 mainAxisSize: MainAxisSize.min,

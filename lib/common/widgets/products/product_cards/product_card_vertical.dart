@@ -18,6 +18,7 @@ class TProductCardVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
+
     //Container with side paddings, color, edges, radius and shadow
     return GestureDetector(
       onTap: () {},
@@ -33,7 +34,7 @@ class TProductCardVertical extends StatelessWidget {
           children: [
             //Thumbnail, Wishlist Button, Discount Tag
             TRoundedContainer(
-              height: 160,
+              height: 153, //Todo Adjust as needed.
               padding: const EdgeInsets.all(TSizes.sm),
               backgroundColor: dark ? TColors.dark : TColors.softGrey,
               child: Stack(
@@ -44,8 +45,8 @@ class TProductCardVertical extends StatelessWidget {
                   ),
                   //Sale Tag
                   Positioned(
-                    left: 7,
                     top: 12,
+                    left: 7,
                     child: TRoundedContainer(
                       radius: TSizes.sm,
                       backgroundColor: TColors.secondary.withAlpha(204),
@@ -73,20 +74,24 @@ class TProductCardVertical extends StatelessWidget {
             //Details
             Padding(
               padding: const EdgeInsets.only(left: TSizes.sm),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TProductTitleText(title: 'White Nike Air Shoes', smallSize: true),
-                  const SizedBox(height: TSizes.spaceBtwItems / 2),
+              //Only reason to use the [SizedBox] here is to make Column full Width.
+              child: SizedBox(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TProductTitleText(title: 'White Nike Air Shoes yaa my asss asf', smallSize: true),
+                    const SizedBox(height: TSizes.spaceBtwItems / 2),
 
-                  //Store Brand title
-                  TBrandTitleWithVerifiedIcon(title: 'Nike'),
-                ],
+                    //Store Brand title
+                    TBrandTitleWithVerifiedIcon(title: 'Nike'),
+                  ],
+                ),
               ),
             ),
 
             //Todo: add spacer() here to keep the height of each box same in case one or two lines of heading.
-            Spacer(),
+            const Spacer(),
 
             //Price row
             Row(

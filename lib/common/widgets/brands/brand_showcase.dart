@@ -23,7 +23,7 @@ class TBrandShowcase extends StatelessWidget {
           children: [
             //Brand with Product count
             const TBrandCard(showBorder: false),
-            const SizedBox(height: TSizes.spaceBtwItems),
+            const SizedBox(height: TSizes.spaceBtwItems / 2),
 
             //Brand Top 3 Product Images
             Row(children: images.map((image) => brandTopProductImageWidget(image, context)).toList()),
@@ -36,7 +36,7 @@ class TBrandShowcase extends StatelessWidget {
   Widget brandTopProductImageWidget(String image, context) {
     return Expanded(
       child: TRoundedContainer(
-        height: 100,
+        height: 90,
         padding: const EdgeInsets.all(TSizes.sm),
         margin: const EdgeInsets.only(right: TSizes.sm),
         backgroundColor: THelperFunctions.isDarkMode(context) ? TColors.darkerGrey : TColors.light,

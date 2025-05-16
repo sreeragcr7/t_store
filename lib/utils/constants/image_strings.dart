@@ -9,6 +9,9 @@ class TImages {
   static const String google = 'assets/logos/google.png';
   static const String instagram = 'assets/logos/instagram.png';
 
+  // --- Profile
+  static const String user = 'assets/images/user/user.png';
+
   // --- onBoarding Images
   static const String onBoardingImage1 = 'assets/images/on_boarding_images/onBoardImage1.json';
   static const String onBoardingImage2 = 'assets/images/on_boarding_images/onBoardImage2.json';
@@ -98,4 +101,5 @@ class TImages {
   static const String nike7 = 'assets/images/products/nike7.png';
   static const String nike8 = 'assets/images/products/nike8.png';
   static const String nike9 = 'assets/images/products/nike9.png';
+  //!.......
 }

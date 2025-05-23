@@ -11,6 +11,7 @@ class TImages {
 
   // --- Profile
   static const String user = 'assets/images/user/user.png';
+  static const String userProfileImage1 = 'assets/images/user/user_profile1.png';
 
   // --- onBoarding Images
   static const String onBoardingImage1 = 'assets/images/on_boarding_images/onBoardImage1.json';

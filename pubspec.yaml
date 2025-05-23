@@ -46,6 +46,7 @@ dependencies:
   # Product Specific
   readmore: ^3.0.0
   carousel_slider: ^5.0.0
+  flutter_rating_bar: ^4.0.1
 
 
 #----------------- PACKAGES END --------------#
@@ -75,6 +76,7 @@ flutter:
     - assets/images/animations/
     - assets/images/banners/ 
     - assets/images/user/ 
+    - assets/images/reviews/ 
     - assets/images/products/ 
     - assets/icons/categories/
     

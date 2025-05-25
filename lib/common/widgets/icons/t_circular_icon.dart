@@ -41,10 +41,10 @@ class TCircularIcon extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
       ),
       child: IconButton(
-        alignment: Alignment.center,
-        padding: EdgeInsets.zero,
         onPressed: onPressed,
         icon: Icon(icon, color: color, size: size),
+        alignment: Alignment.center, // not in tut
+        padding: EdgeInsets.zero,
       ),
     );
   }

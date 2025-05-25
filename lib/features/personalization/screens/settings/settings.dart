@@ -8,6 +8,7 @@ import 'package:t_store/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:t_store/common/widgets/texts/section_heading.dart';
 import 'package:t_store/features/personalization/screens/address/address.dart';
 import 'package:t_store/features/personalization/screens/profile/profile.dart';
+import 'package:t_store/features/shop/screens/cart/cart.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/size.dart';
 
@@ -58,7 +59,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.shopping_cart,
                     title: 'My Cart',
                     subTitle: 'Add, Remove, Products and move to checkout',
-                    onTap: () {},
+                    onTap: () => Get.to(() => const CartScreen()),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.bag_tick,

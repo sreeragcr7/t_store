@@ -38,6 +38,18 @@ class TImages {
   static const String carousel2 = 'assets/images/banners/carousel2.JPG';
   static const String carousel3 = 'assets/images/banners/carousel3.JPG';
 
+  // --- Payment Methods
+  static const String applepay = 'assets/icons/payment_methods/applepay.png';
+  static const String creditcard = 'assets/icons/payment_methods/creditcard.png';
+  static const String mastercard = 'assets/icons/payment_methods/mastercard.png';
+  static const String gpay = 'assets/icons/payment_methods/gpay.png';
+  static const String gpay2 = 'assets/icons/payment_methods/gpay2.png';
+  static const String paypal = 'assets/icons/payment_methods/paypal.png';
+  static const String paytm = 'assets/icons/payment_methods/paytm.png';
+  static const String visa = 'assets/icons/payment_methods/visa.png';
+  static const String successtick = 'assets/icons/payment_methods/successtick.json';
+  static const String successtick2 = 'assets/icons/payment_methods/successtick2.json';
+
   //! -- Product Images
   // acer laptop
   static const String acer1 = 'assets/images/products/acer1.png';

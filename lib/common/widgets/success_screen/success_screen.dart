@@ -8,13 +8,14 @@ import 'package:t_store/utils/helpers/helper_functions.dart';
 class SuccessScreen extends StatelessWidget {
   const SuccessScreen({
     super.key,
-    required this.image,
     required this.onPressed,
     required this.subTitle,
     required this.title,
+    required this.lottieAnimation,
   });
 
-  final String image, title, subTitle;
+  final String title, subTitle;
+  final String lottieAnimation;
   final VoidCallback onPressed;
 
   @override
@@ -26,33 +27,19 @@ class SuccessScreen extends StatelessWidget {
           child: Column(
             children: [
               //Image
-              Lottie.asset(
-                image,
-                width: THelperFunctions.screenWidth() * 0.6,
-              ),
+              Lottie.asset(lottieAnimation, width: THelperFunctions.screenWidth() * 0.6),
               const SizedBox(height: TSizes.spaceBtwSections),
 
               //Title&SubTitle
-              Text(
-                title,
-                style: Theme.of(context).textTheme.headlineSmall,
-                textAlign: TextAlign.center,
-              ),
+              Text(title, style: Theme.of(context).textTheme.headlineSmall, textAlign: TextAlign.center),
               const SizedBox(height: TSizes.spaceBtwItems),
-              Text(
-                subTitle,
-                style: Theme.of(context).textTheme.labelMedium,
-                textAlign: TextAlign.center,
-              ),
+              Text(subTitle, style: Theme.of(context).textTheme.labelMedium, textAlign: TextAlign.center),
               const SizedBox(height: TSizes.spaceBtwSections),
 
               //Buttons
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: onPressed,
-                  child: const Text(TTexts.tContinue),
-                ),
+                child: ElevatedButton(onPressed: onPressed, child: const Text(TTexts.tContinue)),
               ),
             ],
           ),

@@ -18,10 +18,7 @@ class VerifyEmailScreen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         actions: [
-          IconButton(
-            onPressed: () => Get.offAll(() => const LoginScreen()),
-            icon: const Icon(CupertinoIcons.clear),
-          ),
+          IconButton(onPressed: () => Get.offAll(() => const LoginScreen()), icon: const Icon(CupertinoIcons.clear)),
         ],
       ),
       body: SingleChildScrollView(
@@ -31,18 +28,11 @@ class VerifyEmailScreen extends StatelessWidget {
           child: Column(
             children: [
               //Image
-              Lottie.asset(
-                TImages.emailDelivered,
-                width: THelperFunctions.screenWidth() * 0.6,
-              ),
+              Lottie.asset(TImages.emailDelivered, width: THelperFunctions.screenWidth() * 0.6),
               const SizedBox(height: TSizes.spaceBtwSections),
 
               //Title & SubTitle
-              Text(
-                TTexts.confirmEmail,
-                style: Theme.of(context).textTheme.headlineSmall,
-                textAlign: TextAlign.center,
-              ),
+              Text(TTexts.confirmEmail, style: Theme.of(context).textTheme.headlineSmall, textAlign: TextAlign.center),
               const SizedBox(height: TSizes.spaceBtwItems),
               Text(
                 'sreeragmkcr7@gmail.com',
@@ -61,22 +51,22 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () => Get.to(() => SuccessScreen(
-                    image: TImages.successScreen,
-                    title: TTexts.yourAccountCreatedTitle,
-                    subTitle: TTexts.yourAccountCreatedSubTitle,
-                    onPressed: () => Get.to(() => const LoginScreen()),
-                  )),
+                  onPressed:
+                      () => Get.to(
+                        () => SuccessScreen(
+                          lottieAnimation: TImages.successScreen,
+                          title: TTexts.yourAccountCreatedTitle,
+                          subTitle: TTexts.yourAccountCreatedSubTitle,
+                          onPressed: () => Get.to(() => const LoginScreen()),
+                        ),
+                      ),
                   child: const Text(TTexts.tContinue),
                 ),
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
               SizedBox(
                 width: double.infinity,
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text(TTexts.resendEmail),
-                ),
+                child: TextButton(onPressed: () {}, child: const Text(TTexts.resendEmail)),
               ),
             ],
           ),

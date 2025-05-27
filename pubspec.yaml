@@ -71,14 +71,15 @@ flutter:
   #--------------- LOCAL ASSETS --------------#
   assets:
     - assets/logos/
-    - assets/icons/brands/
     - assets/images/on_boarding_images/
     - assets/images/animations/
     - assets/images/banners/ 
     - assets/images/user/ 
     - assets/images/reviews/ 
     - assets/images/products/ 
+    - assets/icons/brands/
     - assets/icons/categories/
+    - assets/icons/payment_methods/
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

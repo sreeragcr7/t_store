@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class TTextTheme {
   TTextTheme._();
 
+  //Light
   static TextTheme lightTextTheme = TextTheme(
     headlineLarge: const TextStyle().copyWith(fontSize: 32.0, fontWeight: FontWeight.bold, color: Colors.black),
     headlineMedium: const TextStyle().copyWith(fontSize: 24.0, fontWeight: FontWeight.w600, color: Colors.black),
@@ -26,8 +27,10 @@ class TTextTheme {
       fontWeight: FontWeight.normal,
       color: Color.fromRGBO(0, 0, 0, 0.5),
     ),
+    labelSmall: const TextStyle().copyWith(fontSize: 9.0, fontWeight: FontWeight.bold, color: Colors.black),
   );
 
+  //Dark
   static TextTheme darkTextTheme = TextTheme(
     headlineLarge: const TextStyle().copyWith(fontSize: 32.0, fontWeight: FontWeight.bold, color: Colors.white),
     headlineMedium: const TextStyle().copyWith(fontSize: 24.0, fontWeight: FontWeight.w600, color: Colors.white),
@@ -51,5 +54,6 @@ class TTextTheme {
       fontWeight: FontWeight.normal,
       color: Color.fromRGBO(255, 255, 255, 0.5),
     ),
+    labelSmall: const TextStyle().copyWith(fontSize: 9.0, fontWeight: FontWeight.bold, color: Colors.white),
   );
 }

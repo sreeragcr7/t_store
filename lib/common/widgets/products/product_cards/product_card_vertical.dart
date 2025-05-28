@@ -14,7 +14,7 @@ import 'package:t_store/utils/constants/image_strings.dart';
 import 'package:t_store/utils/constants/size.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
-class TProductCardVertical extends StatelessWidget {   
+class TProductCardVertical extends StatelessWidget {
   const TProductCardVertical({super.key});
 
   @override

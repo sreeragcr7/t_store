@@ -75,8 +75,9 @@ class CheckoutScreen extends StatelessWidget {
               () => Get.to(
                 () => SuccessScreen(
                   lottieAnimation: TImages.successtick2,
-                  title: 'Payment Success',
+                  title: 'Payment Success!',
                   subTitle: 'Your item will be shipped soon',
+                  btnText: 'Continue Shopping',
                   onPressed: () => Get.offAll(() => const NavigationMenu()),
                 ),
               ),

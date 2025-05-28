@@ -18,7 +18,7 @@ class TBillingAddressSection extends StatelessWidget {
           children: [
             const Icon(Icons.phone, color: Colors.grey, size: 16),
             const SizedBox(height: TSizes.spaceBtwItems),
-            Text('+92-56-4589632', style: Theme.of(context).textTheme.bodyMedium),
+            Text(' +92-56-4589632', style: Theme.of(context).textTheme.bodyMedium),
           ],
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 2),
@@ -28,7 +28,7 @@ class TBillingAddressSection extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBtwItems),
             Expanded(
               child: Text(
-                'South Liana, Maine 88964, USA',
+                ' South Liana, Maine 88964, USA',
                 style: Theme.of(context).textTheme.bodyMedium,
                 softWrap: true,
               ),

@@ -57,6 +57,7 @@ class VerifyEmailScreen extends StatelessWidget {
                           lottieAnimation: TImages.successScreen,
                           title: TTexts.yourAccountCreatedTitle,
                           subTitle: TTexts.yourAccountCreatedSubTitle,
+                          btnText: 'Continue',
                           onPressed: () => Get.to(() => const LoginScreen()),
                         ),
                       ),

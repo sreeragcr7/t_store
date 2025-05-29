@@ -16,7 +16,7 @@ class TGridLayout extends StatelessWidget {
       padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
+        crossAxisCount: 2, //use only 2 items horizontally
         mainAxisExtent: mainAxisExtent,
         crossAxisSpacing: TSizes.gridViewSpacing,
         mainAxisSpacing: TSizes.gridViewSpacing,

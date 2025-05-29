@@ -30,7 +30,7 @@ class TCartItems extends StatelessWidget {
                     Row(
                       children: [
                         //Extra space
-                        const SizedBox(width: 70),
+                        SizedBox(width: 70),
                         //Add Remove Button
                         TProductQuantityWithAddRemoveButton(),
                       ],

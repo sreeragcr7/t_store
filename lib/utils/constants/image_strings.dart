@@ -20,6 +20,7 @@ class TImages {
 
   // --- Animations
   static const String emailDelivered = 'assets/images/animations/emailDelivered.json';
+  static const String emailLoading = 'assets/images/animations/emailLoading.json';
   static const String successScreen = 'assets/images/animations/successScreen.json';
 
   // --- Category Icon

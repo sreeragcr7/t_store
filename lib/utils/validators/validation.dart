@@ -1,5 +1,14 @@
-
 class TValidator {
+
+  //Empty text validation
+  static String? validateEmptyText(String? fieldName, String? value) {
+    if (value == null || value.isEmpty) {
+      return '$fieldName is required';
+    }
+    return null;
+  }
+ 
+  //!email 
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Email is required.';
@@ -13,7 +22,8 @@ class TValidator {
     }
     return null;
   }
-
+  
+  //!password 
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
       return 'Password is required.';

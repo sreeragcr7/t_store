@@ -59,7 +59,7 @@ class SignupController extends GetxController {
         password.text.trim(),
       );
 
-      //Save Authenticated User Data in the Firebase Store
+      //Save Authenticated user data in the Firebase Firestore
       final newUser = UserModel(
         id: userCredential.user!.uid,
         firstName: firstName.text.trim(),
@@ -83,7 +83,7 @@ class SignupController extends GetxController {
       );
 
       //Move to Verify Email Screen
-      Get.to(() => const VerifyEmailScreen());
+      Get.to(() => VerifyEmailScreen(email: email.text.trim()));
     } catch (e) {
       //Remove Loader
       TFullScreenLoader.stopLoading();

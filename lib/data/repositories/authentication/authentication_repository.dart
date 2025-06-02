@@ -15,11 +15,11 @@ import 'package:t_store/utils/exceptions/platform_exceptions.dart';
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
 
-  //Variables
+  ///Variables
   final deviceStorage = GetStorage();
   final _auth = FirebaseAuth.instance;
 
-  //Called from main.dart on App launch
+  ///Called from main.dart on App launch
   @override
   void onReady() {
     //Remove the native splash screen
@@ -28,22 +28,21 @@ class AuthenticationRepository extends GetxController {
     screenRedirect();
   }
 
-  //Function to show relevent screen
-  screenRedirect() async {
+  ///Function to determine the relevent screen & redirect accordingly.
+  void screenRedirect() async {
     final user = _auth.currentUser;
+
     if (user != null) {
+      //If the user is logged in
       if (user.emailVerified) {
+        //If the user's email is varified, navigate to the main navigation Menu
         Get.offAll(() => const NavigationMenu());
       } else {
+        //If the user's email is not verified, navigate to the VerifyEmailScreen
         Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email));
       }
     } else {
       //Local Storage
-      // if (kDebugMode) {
-      //   print('================ GET STORAGE auth repo ================');
-      //   print(deviceStorage.read('isFirstTime'));
-      // }
-
       deviceStorage.writeIfNull('isFirstTime', true);
       //Check if its the first time launching the app
       deviceStorage.read('isFirstTime') != true
@@ -54,9 +53,24 @@ class AuthenticationRepository extends GetxController {
 
   //? ----------------------- Email & Password Sign-in -------------------------
 
-  //[EmailAuthentication] - SignIn
+  ///[EmailAuthentication] - LOGIN
+  Future<UserCredential> loginWithEmailAndPassword(String email, String password) async {
+    try {
+      return await _auth.signInWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw ('Something went wrong, Please try again!');
+    }
+  }
 
-  //[EmailAuthentication] - REGISTER
+  ///[EmailAuthentication] - REGISTER
   Future<UserCredential> registerWithEmailAndPassword(String email, String password) async {
     try {
       return await _auth.createUserWithEmailAndPassword(email: email, password: password);
@@ -73,7 +87,7 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  //[EmailVerification] - EMAIL VERIFICATION
+  ///[EmailVerification] - EMAIL VERIFICATION
   Future<void> sendEmailVerification() async {
     try {
       await _auth.currentUser?.sendEmailVerification(); //currentUser automatically asignes
@@ -90,19 +104,19 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  //[ReAuthenticate] - ReAuthenticate user
+  ///[ReAuthenticate] - ReAuthenticate user
 
-  //[EmailAuthentication] - FORGET PASSWORD
+  ///[EmailAuthentication] - FORGET PASSWORD
 
   //? ----------------------- Federate identity & Social sign-in -------------------------
 
-  //[GoogleAuthentication] - Google
+  ///[GoogleAuthentication] - Google
 
-  //[FacebookAuthentication] - Instagram
+  ///[FacebookAuthentication] - Instagram
 
   //? ----------------------- ./end Federate identity & Social sign-in -------------------------
 
-  //[LogoutUser] - Valid for any Authentication
+  ///[LogoutUser] - Valid for any Authentication
   Future<void> logout() async {
     try {
       await FirebaseAuth.instance.signOut();
@@ -120,5 +134,5 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  //DELETE USER - Remove user Auth & Firestore Account
+  ///DELETE USER - Remove user Auth & Firestore Account
 }

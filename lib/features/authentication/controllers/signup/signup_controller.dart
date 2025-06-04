@@ -71,7 +71,7 @@ class SignupController extends GetxController {
       );
 
       final userRepository = Get.put(UserRepository());
-      await userRepository.saveUserRecord(newUser);
+      await userRepository.saveUserRecord(newUser); //user_repository
 
       //Remove Loader
       TFullScreenLoader.stopLoading();

@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:t_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:t_store/features/authentication/models/user_model.dart';
 import 'package:t_store/utils/exceptions/firebase_exceptions.dart';
@@ -93,4 +95,37 @@ class UserRepository extends GetxController {
   }
 
   ///Upload any Image
+  Future<String> uploadImage(String bucketName, String path, XFile image) async {
+    try {
+      final supabase = Supabase.instance.client;
+      final fileBytes = await image.readAsBytes();
+
+      // Generate a unique name using timestamp to avoid overwrites
+      final fileName = '${DateTime.now().millisecondsSinceEpoch}_${image.name}';
+      // Full file path inside the bucket
+      final filePath = 'users/images/$fileName'.replaceAll('//', '/');
+
+      // Upload the file — returns the path if successful
+      await supabase.storage
+          .from(bucketName)
+          .uploadBinary(
+            filePath,
+            fileBytes,
+            fileOptions: const FileOptions(upsert: true, cacheControl: 'max-age=3600'),
+          );
+
+      // Return the public URL
+      return supabase.storage.from(bucketName).getPublicUrl(filePath);
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } on StorageException catch (e) {
+      throw 'Supabase storage error: ${e.message}';
+    } on PostgrestException catch (e) {
+      throw 'Supabase error: ${e.message}';
+    } catch (e) {
+      throw 'Image upload failed: ${e.toString()}';
+    }
+  }
 }

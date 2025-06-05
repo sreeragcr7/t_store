@@ -32,8 +32,11 @@ dependencies:
   logger: ^2.5.0
   lottie: ^3.3.1
   shimmer: ^3.0.0
+  image_picker: ^1.1.2
   url_launcher: ^6.3.1
+  flutter_dotenv: ^5.2.1
   connectivity_plus: ^6.1.4
+  cached_network_image: ^3.4.1
   flutter_native_splash: ^2.4.6
   smooth_page_indicator: ^1.2.1
 
@@ -55,6 +58,7 @@ dependencies:
   firebase_auth: ^5.5.4
   cloud_firestore: ^5.6.8
   google_sign_in: ^6.3.0
+  supabase_flutter: ^2.9.0
 
 #----------------- PACKAGES END --------------#
 dev_dependencies:
@@ -86,6 +90,7 @@ flutter:
     - assets/images/products/ 
     - assets/icons/categories/
     - assets/icons/payment_methods/
+    - .env
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

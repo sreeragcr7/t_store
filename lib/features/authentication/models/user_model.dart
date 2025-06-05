@@ -77,7 +77,7 @@ class UserModel {
       return UserModel.empty();
     }
   }
-//!or
+  //!or
   // factory UserModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
   //   final data = document.data();
   //   if (data == null) return UserModel.empty();

@@ -3,7 +3,7 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/utils.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
-import 'package:t_store/utils/loaders/animation_loader.dart';
+import 'package:t_store/common/widgets/loaders/animation_loader.dart';
 
 // A utility class for managing a full-screen loading dialog.
 class TFullScreenLoader {

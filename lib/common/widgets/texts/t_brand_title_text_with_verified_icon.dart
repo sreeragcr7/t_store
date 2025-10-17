@@ -24,6 +24,8 @@ class TBrandTitleWithVerifiedIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Add null/empty check for title
+    if (title.isEmpty) return const SizedBox.shrink();
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -33,12 +35,11 @@ class TBrandTitleWithVerifiedIcon extends StatelessWidget {
             color: textColor,
             maxLines: maxLines,
             textAlign: textAlign,
-            brandTextSize: brandTextSize
-
+            brandTextSize: brandTextSize,
           ),
-          ),
-          const SizedBox(width: TSizes.xs,),
-          Icon(Iconsax.verify5, color: iconColor, size: TSizes.iconXs,)
+        ),
+        const SizedBox(width: TSizes.xs),
+        Icon(Iconsax.verify5, color: iconColor, size: TSizes.iconXs),
       ],
     );
   }

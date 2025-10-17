@@ -2,25 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:t_store/common/widgets/appbar/appbar.dart';
 import 'package:t_store/common/widgets/brands/brand_card.dart';
 import 'package:t_store/common/widgets/products/sortable/sortable_products.dart';
+import 'package:t_store/common/widgets/shimmers/vertical_product_shimmer.dart';
+import 'package:t_store/features/shop/controllers/brand_controller.dart';
+import 'package:t_store/features/shop/models/brand_model.dart';
 import 'package:t_store/utils/constants/size.dart';
+import 'package:t_store/utils/helpers/cloud_helper_functions.dart';
 
 class BrandProducts extends StatelessWidget {
-  const BrandProducts({super.key});
+  const BrandProducts({super.key, required this.brand});
+
+  final BrandModel brand;
 
   @override
   Widget build(BuildContext context) {
+    final controller = BrandController.instance;
     return Scaffold(
-      appBar: TAppBar(showBackArrow: true, title: Text('Nike')),
+      appBar: TAppBar(showBackArrow: true, title: Text(brand.name)),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
               //Brand Detail
-              TBrandCard(showBorder: true),
+              TBrandCard(showBorder: true, brand: brand),
               const SizedBox(height: TSizes.spaceBtwSections),
 
-              const TSortableProducts(),
+              FutureBuilder(
+                future: controller.getBrandProducts(brand.id),
+                builder: (context, snapshot) {
+                  //Handle Loader, No Records, Or Error messages
+                  const loader = TVerticalProductShimmer();
+                  final widget = TCloudHelperFunctions.checkMultiRecordStatus(snapshot: snapshot, loader: loader);
+                  if (widget != null) return widget;
+
+                  //Record found!
+                  final brandProducts = snapshot.data!;
+                  return  TSortableProducts(products: brandProducts);
+                },
+              ),
             ],
           ),
         ),

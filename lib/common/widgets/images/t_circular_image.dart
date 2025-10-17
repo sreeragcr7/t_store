@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/size.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
-import 'package:t_store/utils/loaders/shimmer_effect.dart';
+import 'package:t_store/common/widgets/shimmers/shimmer_effect.dart';
 
 class TCircularImage extends StatelessWidget {
   const TCircularImage({
     super.key,
-    this.width = 46,
-    this.height = 46,
+    this.width = 54,
+    this.height = 54,
     this.overlayColor,
     this.backgroundColor,
     required this.image,
@@ -30,7 +30,7 @@ class TCircularImage extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.all(7),
       decoration: BoxDecoration(
         //if image background color is null, then switch it to light & dark mode color design.
         color: backgroundColor ?? (THelperFunctions.isDarkMode(context) ? TColors.black : TColors.white),

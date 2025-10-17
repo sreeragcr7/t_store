@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:t_store/features/authentication/models/address_model.dart';
 import 'package:t_store/utils/formatters/formatters.dart';
 
 //Model class representing user data
@@ -11,6 +12,7 @@ class UserModel {
   final String email;
   String phoneNumber;
   String profilePicture;
+  List<AddressModel> addresses;
 
   ///Constructor for UserModel
   UserModel({
@@ -21,6 +23,7 @@ class UserModel {
     required this.email,
     required this.phoneNumber,
     required this.profilePicture,
+    this.addresses = const [],
   });
 
   ///Helper function to get the full name
@@ -44,8 +47,16 @@ class UserModel {
   }
 
   ///Static function to create an empty user model
-  static UserModel empty() =>
-      UserModel(id: "", firstName: "", lastName: "", username: "", email: "", phoneNumber: "", profilePicture: "");
+  static UserModel empty() => UserModel(
+    id: "",
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    phoneNumber: "",
+    profilePicture: "",
+    addresses: [],
+  );
 
   ///Convert model to jSON structure for storing data in Firebase.
   Map<String, dynamic> toJson() {
@@ -56,6 +67,7 @@ class UserModel {
       'Email': email,
       'PhoneNumber': phoneNumber,
       'ProfilePicture': profilePicture,
+      'Addresses': addresses.map((address) => address.toJson()).toList(),
     };
   }
 
@@ -72,6 +84,10 @@ class UserModel {
         email: data["Email"] ?? "",
         phoneNumber: data["PhoneNumber"] ?? "",
         profilePicture: data["ProfilePicture"] ?? "",
+        addresses:
+            (data['Addresses'] as List<dynamic>? ?? [])
+                .map((e) => AddressModel.fromJson(Map<String, dynamic>.from(e)))
+                .toList(),
       );
     } else {
       return UserModel.empty();

@@ -8,8 +8,8 @@ class THelperFunctions {
 
     if (value == 'Green') {
       return Colors.green;
-    } else if (value == 'Green') {
-      return Colors.green;
+    } else if (value == 'Grey') {
+      return Colors.grey;
     } else if (value == 'Red') {
       return Colors.red;
     } else if (value == 'Blue') {

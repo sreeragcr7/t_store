@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/images/t_circular_image.dart';
 import 'package:t_store/features/personalization/controllers/user_controller.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/image_strings.dart';
+import 'package:t_store/common/widgets/shimmers/shimmer_effect.dart';
 
 class TUserProfileTile extends StatelessWidget {
   const TUserProfileTile({super.key, required this.onPressed});
@@ -14,7 +16,13 @@ class TUserProfileTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return ListTile(
-      leading: TCircularImage(image: TImages.user, width: 50, height: 50, padding: 0),
+      leading: Obx(() {
+        final networkImage = controller.user.value.profilePicture;
+        final image = networkImage.isNotEmpty ? networkImage : TImages.userProfileImage1;
+        return controller.imageUploading.value
+            ? const TShimmerEffect(width: 50, height: 50, radius: 50)
+            : TCircularImage(image: image, width: 50, height: 50, padding: 0, isNetworkImage: networkImage.isNotEmpty);
+      }),
       title: Text(
         controller.user.value.fullName,
         style: Theme.of(context).textTheme.headlineSmall!.apply(color: TColors.white),

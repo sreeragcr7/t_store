@@ -1,4 +1,3 @@
-
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -52,10 +51,10 @@ class LoginController extends GetxController {
       }
 
       //Login user using Email & Password Authentication
-      final userCredentials = await AuthenticationRepository.instance.loginWithEmailAndPassword(
-        email.text.trim(),
-        password.text.trim(),
-      );
+      // final userCredentials = await AuthenticationRepository.instance.loginWithEmailAndPassword(
+      //   email.text.trim(),
+      //   password.text.trim(),
+      // );
 
       //Remove Loader
       TFullScreenLoader.stopLoading();
@@ -92,7 +91,6 @@ class LoginController extends GetxController {
 
       //Redirect
       AuthenticationRepository.instance.screenRedirect();
-
     } catch (e) {
       //Remove Loader
       TFullScreenLoader.stopLoading();

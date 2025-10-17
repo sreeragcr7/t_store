@@ -35,9 +35,9 @@ class TImages {
   static const String electronicIcon = 'assets/icons/categories/electronics.png';
 
   // --- Carousel images
-  static const String carousel1 = 'assets/images/banners/carousel1.JPG';
-  static const String carousel2 = 'assets/images/banners/carousel2.JPG';
-  static const String carousel3 = 'assets/images/banners/carousel3.JPG';
+  static const String banner1 = 'assets/images/banners/banner1.JPG';
+  static const String banner2 = 'assets/images/banners/banner2.JPG';
+  static const String banner3 = 'assets/images/banners/banner3.JPG';
 
   // --- Payment Methods
   static const String applepay = 'assets/icons/payment_methods/applepay.png';

@@ -45,7 +45,7 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   # State Management
-  get: ^4.6.5
+  get: ^4.7.2
   get_storage: ^2.1.1
 
   # Product Specific
@@ -58,6 +58,8 @@ dependencies:
   firebase_auth: ^5.5.4
   cloud_firestore: ^5.6.8
   google_sign_in: ^6.3.0
+
+  # Supabase
   supabase_flutter: ^2.9.0
 
 #----------------- PACKAGES END --------------#

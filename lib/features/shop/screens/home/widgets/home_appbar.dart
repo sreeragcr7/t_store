@@ -5,7 +5,7 @@ import 'package:t_store/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:t_store/features/personalization/controllers/user_controller.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/text_strings.dart';
-import 'package:t_store/utils/loaders/shimmer_effect.dart';
+import 'package:t_store/common/widgets/shimmers/shimmer_effect.dart';
 
 class THomeAppBar extends StatelessWidget {
   const THomeAppBar({super.key});

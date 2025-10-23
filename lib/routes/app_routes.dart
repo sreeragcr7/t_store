@@ -20,7 +20,7 @@ class AppRoutes {
   static final pages = [
     GetPage(name: TRoutes.home, page: () => const HomeScreen()),
     GetPage(name: TRoutes.store, page: () => const StoreScreen()),
-    GetPage(name: TRoutes.favourites, page: () => const Wishlist()),
+    GetPage(name: TRoutes.favourites, page: () => const FavouriteScreen()),
     GetPage(name: TRoutes.settings, page: () => const SettingsScreen()),
     GetPage(name: TRoutes.productReviews, page: () => const ProductReviewScreen()),
     GetPage(name: TRoutes.order, page: () => const OrderScreen()),

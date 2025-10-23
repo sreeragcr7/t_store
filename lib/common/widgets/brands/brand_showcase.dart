@@ -1,34 +1,42 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:t_store/common/widgets/brands/brand_card.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/t_rounded_container.dart';
+import 'package:t_store/common/widgets/shimmers/shimmer_effect.dart';
 import 'package:t_store/features/shop/models/brand_model.dart';
+import 'package:t_store/features/shop/screens/brands/brand_products.dart';
 import 'package:t_store/utils/constants/colors.dart';
 import 'package:t_store/utils/constants/size.dart';
 import 'package:t_store/utils/helpers/helper_functions.dart';
 
 class TBrandShowcase extends StatelessWidget {
-  const TBrandShowcase({super.key, required this.images});
+  const TBrandShowcase({super.key, required this.images, required this.brand});
 
+  final BrandModel brand;
   final List<String> images;
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: TRoundedContainer(
-        showBorder: true,
-        borderColor: TColors.darkGrey,
-        backgroundColor: Colors.transparent,
-        padding: EdgeInsets.all(TSizes.md),
-        margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
-        child: Column(
-          children: [
-            //Brand with Product count
-            TBrandCard(showBorder: false, brand: BrandModel.empty()),
-            const SizedBox(height: TSizes.spaceBtwItems / 2),
+      child: InkWell(
+        onTap: () => Get.to(() => BrandProducts(brand: brand)),
+        child: TRoundedContainer(
+          showBorder: true,
+          borderColor: TColors.darkGrey,
+          backgroundColor: Colors.transparent,
+          padding: const EdgeInsets.all(TSizes.md),
+          margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
+          child: Column(
+            children: [
+              //Brand with Product count
+              TBrandCard(showBorder: false, brand: brand),
+              const SizedBox(height: TSizes.spaceBtwItems / 2),
 
-            //Brand Top 3 Product Images
-            Row(children: images.map((image) => brandTopProductImageWidget(image, context)).toList()),
-          ],
+              //Brand Top 3 Product Images
+              Row(children: images.map((image) => brandTopProductImageWidget(image, context)).toList()),
+            ],
+          ),
         ),
       ),
     );
@@ -41,7 +49,12 @@ class TBrandShowcase extends StatelessWidget {
         padding: const EdgeInsets.all(TSizes.sm),
         margin: const EdgeInsets.only(right: TSizes.sm),
         backgroundColor: THelperFunctions.isDarkMode(context) ? TColors.darkerGrey : TColors.light,
-        child: Image(fit: BoxFit.contain, image: AssetImage(image)),
+        child: CachedNetworkImage(
+          fit: BoxFit.contain,
+          imageUrl: image,
+          progressIndicatorBuilder: (context, url, downloadProgress) => const TShimmerEffect(width: 100, height: 100),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
+        ),
       ),
     );
   }

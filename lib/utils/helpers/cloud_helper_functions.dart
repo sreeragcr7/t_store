@@ -23,7 +23,7 @@ class TCloudHelperFunctions {
     return null;
   }
 
-  static Widget? checkMultiRecordStatus<T>({
+  static Widget? checkMultiRecordState<T>({
     required AsyncSnapshot<List<T>> snapshot,
     Widget? loader,
     Widget? error,

@@ -28,11 +28,11 @@ class BrandProducts extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwSections),
 
               FutureBuilder(
-                future: controller.getBrandProducts(brand.id),
+                future: controller.getBrandProducts(brandId: brand.id),
                 builder: (context, snapshot) {
                   //Handle Loader, No Records, Or Error messages
                   const loader = TVerticalProductShimmer();
-                  final widget = TCloudHelperFunctions.checkMultiRecordStatus(snapshot: snapshot, loader: loader);
+                  final widget = TCloudHelperFunctions.checkMultiRecordState(snapshot: snapshot, loader: loader);
                   if (widget != null) return widget;
 
                   //Record found!

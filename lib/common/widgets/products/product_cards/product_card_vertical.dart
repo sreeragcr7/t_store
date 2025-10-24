@@ -24,10 +24,10 @@ class TProductCardVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = ProductController.instance;
-    final dark = THelperFunctions.isDarkMode(context);
     final salePercentage = controller.calculateSalePercentage(product.price, product.salePrice);
-    //Container with side paddings, color, edges, radius and shadow
+    final dark = THelperFunctions.isDarkMode(context);
 
+    //Container with side paddings, color, edges, radius and shadow
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetailScreen(product: product)),
       child: Container(
@@ -70,7 +70,7 @@ class TProductCardVertical extends StatelessWidget {
                     ),
 
                   //Favourit Icon Button
-                  Positioned(top: 7, right: 7, child:  TFavouriteIcon(productId: product.id)),
+                  Positioned(top: 7, right: 7, child: TFavouriteIcon(productId: product.id)),
                 ],
               ),
             ),

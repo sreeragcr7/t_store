@@ -23,6 +23,7 @@ class TImages {
   static const String emailLoading = 'assets/images/animations/emailLoading.json';
   static const String successScreen = 'assets/images/animations/successScreen.json';
   static const String emptyFolder = 'assets/images/animations/emptyfolder.json';
+  static const String boxOpen = 'assets/images/animations/boxopen.json';
 
   // --- Category Icon
   static const String sportIcon = 'assets/icons/categories/sports.png';

@@ -1,6 +1,7 @@
 import 'package:get_storage/get_storage.dart';
 
 class TLocalStorage {
+  
   late final GetStorage _storage;
 
   //Singleton instance

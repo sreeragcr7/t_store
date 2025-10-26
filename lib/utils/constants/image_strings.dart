@@ -24,6 +24,7 @@ class TImages {
   static const String successScreen = 'assets/images/animations/successScreen.json';
   static const String emptyFolder = 'assets/images/animations/emptyfolder.json';
   static const String boxOpen = 'assets/images/animations/boxopen.json';
+  static const String tailLoading = 'assets/images/animations/tailLoading.json';
 
   // --- Category Icon
   static const String sportIcon = 'assets/icons/categories/sports.png';

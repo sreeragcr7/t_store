@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:t_store/common/widgets/custom_shapes/containers/t_rounded_container.dart';
 import 'package:t_store/common/widgets/images/t_rounded_image.dart';

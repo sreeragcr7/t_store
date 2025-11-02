@@ -11,11 +11,10 @@ class SuccessScreen extends StatelessWidget {
     required this.subTitle,
     required this.title,
     required this.lottieAnimation,
-    required this.btnText //!M
+    required this.btnText, //!M
   });
 
-  final String title, subTitle;
-  final String lottieAnimation;
+  final String title, subTitle, lottieAnimation;
   final VoidCallback onPressed;
   final String btnText; //!M
 
@@ -42,10 +41,7 @@ class SuccessScreen extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwSections),
 
                   // Button
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(onPressed: onPressed, child: Text(btnText)),
-                  ),
+                  SizedBox(width: double.infinity, child: ElevatedButton(onPressed: onPressed, child: Text(btnText))),
                 ],
               ),
             ),

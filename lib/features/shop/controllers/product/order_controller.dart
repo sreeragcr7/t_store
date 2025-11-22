@@ -14,7 +14,7 @@ import 'package:t_store/utils/popups/full_screen_loader.dart';
 import 'package:t_store/utils/popups/loaders.dart';
 
 class OrderController extends GetxController {
-  static OrderController get inatance => Get.find();
+  static OrderController get instance => Get.find();
 
   //Variables
   final cartController = CartController.instance;
